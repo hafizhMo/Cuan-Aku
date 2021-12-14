@@ -1,3 +1,53 @@
 <resources>
     <string name="app_name">Cuan Aku</string>
+    <string name="fa_icon_areachart">&#xf1fe;</string>
+    <string name="fa_icon_piechart">&#xf200;</string>
+    <string name="fa_icon_linechart">&#xf201;</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="feature_title">
+        <item>Food</item>
+        <item>Social Life</item>
+        <item>Self-development</item>
+        <item>Transportation</item>
+        <item>Culture</item>
+        <item>Household</item>
+        <item>Apparel</item>
+        <item>Beauty</item>
+        <item>Health</item>
+        <item>Education</item>
+        <item>Gift</item>
+        <item>Other</item>
+    </string-array>
+
+    <array name="feature_image">
+        <item>@drawable/ic_food</item>
+        <item>@drawable/ic_social_life</item>
+        <item>@drawable/ic_self_development</item>
+        <item>@drawable/ic_transportation</item>
+        <item>@drawable/ic_culture</item>
+        <item>@drawable/ic_household</item>
+        <item>@drawable/ic_apparel</item>
+        <item>@drawable/ic_beauty</item>
+        <item>@drawable/ic_health</item>
+        <item>@drawable/ic_education</item>
+        <item>@drawable/ic_gift</item>
+        <item>@drawable/ic_other</item>
+    </array>
+
+    <array name="feature_color">
+        <item>@color/bg_emerald</item>
+        <item>@color/bg_green</item>
+        <item>@color/bg_rose</item>
+        <item>@color/bg_orange</item>
+        <item>@color/bg_pink</item>
+        <item>@color/bg_lime</item>
+        <item>@color/bg_indigo</item>
+        <item>@color/bg_purple</item>
+        <item>@color/bg_amber</item>
+        <item>@color/bg_blue</item>
+        <item>@color/bg_yellow</item>
+        <item>@color/bg_red</item>
+    </array>
+
 </resources>

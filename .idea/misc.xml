@@ -3,11 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/drawable/bg_gradient_midnight_city.xml" value="0.2846153846153846" />
         <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/drawable/bg_splash_screen.xml" value="0.2846153846153846" />
-        <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/drawable/selector_bottom_nav.xml" value="0.2846153846153846" />
+        <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/layout/activity_splash_screen.xml" value="0.27291666666666664" />
+        <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/layout/bottom_sheet_category.xml" value="0.27291666666666664" />
+        <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/layout/fragment_dashboard.xml" value="0.27291666666666664" />
+        <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/layout/fragment_history.xml" value="0.27291666666666664" />
         <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/layout/fragment_list.xml" value="0.1" />
+        <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/layout/item_grid_category.xml" value="0.25277777777777777" />
         <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/layout/item_list.xml" value="0.1" />
+        <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/layout/item_list_transaction.xml" value="0.27291666666666664" />
+        <entry key="..\:/Programming/AndroidStudioProject/CuanAku/app/src/main/res/menu/bottom_nav_main.xml" value="0.27291666666666664" />
       </map>
     </option>
   </component>

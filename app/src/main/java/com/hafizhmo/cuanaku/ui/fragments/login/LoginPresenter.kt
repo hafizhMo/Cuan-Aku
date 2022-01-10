@@ -20,7 +20,7 @@ class LoginPresenter(val loginView: LoginView) {
                     return
                 }
 
-                loginView.onSuccess(result.user, result.message)
+                loginView.onSuccess(result.user, result.token, result.message)
             }
 
             override fun onFailure(call: Call<Auth>, t: Throwable) {

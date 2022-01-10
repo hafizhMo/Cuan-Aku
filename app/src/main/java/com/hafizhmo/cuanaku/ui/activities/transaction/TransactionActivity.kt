@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.hafizhmo.cuanaku.databinding.ActivityTransactionBinding
+import com.hafizhmo.cuanaku.model.Category
 
 class TransactionActivity : AppCompatActivity(), TransactionView {
     private lateinit var binding: ActivityTransactionBinding
@@ -43,5 +44,17 @@ class TransactionActivity : AppCompatActivity(), TransactionView {
 
     override fun deleteFailed(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    override fun categorySuccess(categories: List<Category.Categories>, message: String) {
+
+    }
+
+    override fun categoryEmpty(message: String) {
+
+    }
+
+    override fun categoryFailed(message: String) {
+
     }
 }

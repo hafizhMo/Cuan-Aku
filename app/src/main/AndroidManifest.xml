@@ -12,14 +12,15 @@
         android:theme="@style/Theme.CuanAku"
         tools:ignore="AllowBackup">
         <activity
-            android:name="com.hafizhmo.cuanaku.ui.activities.splashscreen.SplashScreenActivity"
-            android:exported="true" >
+            android:name=".ui.activities.auth.AuthActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activities.splashscreen.SplashScreenActivity" />
         <activity android:name=".ui.activities.main.MainActivity" />
     </application>
 

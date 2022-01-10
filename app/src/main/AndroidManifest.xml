@@ -12,6 +12,9 @@
         android:theme="@style/Theme.CuanAku"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".ui.activities.budgetdetail.BudgetDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.budget.BudgetActivity"
             android:exported="false" />
         <activity

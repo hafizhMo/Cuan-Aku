@@ -6,11 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.main.MainActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/abl_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tb_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:minHeight="?attr/actionBarSize">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24sp"
+                android:fontFamily="@font/inter_semibold"
+                android:text="@string/app_name"
+                android:textColor="@color/material_on_surface_emphasis_high_type"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="24sp"
+                android:src="@drawable/ic_settings"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/material_on_surface_emphasis_high_type" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
     <FrameLayout
         android:id="@+id/fl_main"
+        android:background="#FAFAFA"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="54dp" />
+        android:layout_marginVertical="54dp" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bab_main"
@@ -27,10 +65,10 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="16dp"
             android:background="@android:color/transparent"
-            app:labelVisibilityMode="selected"
+            app:itemIconTint="@color/selector_bottom_nav"
             app:itemRippleColor="#0A000000"
             app:itemTextColor="@color/selector_bottom_nav"
-            app:itemIconTint="@color/selector_bottom_nav"
+            app:labelVisibilityMode="selected"
             app:menu="@menu/bottom_nav_main" />
 
     </com.google.android.material.bottomappbar.BottomAppBar>
@@ -38,9 +76,9 @@
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_anchor="@id/bab_main"
         android:src="@drawable/ic_add"
         android:tint="@android:color/white"
+        app:layout_anchor="@id/bab_main"
         tools:ignore="ContentDescription" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

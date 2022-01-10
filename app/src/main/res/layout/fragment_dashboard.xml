@@ -1,189 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAFAFA"
     android:orientation="vertical"
     tools:context=".ui.fragments.dashboard.DashboardFragment">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/abl_dashboard"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/tb_dashboard"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_budget"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:minHeight="?attr/actionBarSize">
+            android:layout_margin="16dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="16dp"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24sp"
-                android:fontFamily="@font/inter_semibold"
-                android:text="@string/app_name"
-                android:textColor="@color/material_on_surface_emphasis_high_type"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="24sp"
-                android:src="@drawable/ic_settings"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/material_on_surface_emphasis_high_type" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="48dp">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_budget"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="16dp"
-                app:layout_constraintTop_toTopOf="parent">
+                android:background="@drawable/bg_gradient_midnight_city"
+                android:padding="16dp">
 
-                <androidx.constraintlayout.widget.ConstraintLayout
+                <TextView
+                    android:id="@+id/text_budget_dummy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Budget Aku"
+                    android:textColor="#E6FFFFFF"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_pengeluarn_dummy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="48dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Pengeluaran"
+                    android:textAllCaps="true"
+                    android:textColor="#A6FFFFFF"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toStartOf="@id/text_budget_dummy"
+                    app:layout_constraintTop_toBottomOf="@id/text_budget_dummy" />
+
+                <TextView
+                    android:id="@+id/text_pengeluran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Rp 245,000"
+                    android:textColor="#E6FFFFFF"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/text_budget_dummy"
+                    app:layout_constraintTop_toBottomOf="@id/text_pengeluarn_dummy" />
+
+                <TextView
+                    android:id="@+id/text_sisa_budget_dummy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:text="Sisa Budget"
+                    android:textAllCaps="true"
+                    android:textColor="#A6FFFFFF"
+                    android:textSize="10sp"
+                    app:layout_constraintBottom_toTopOf="@id/text_sisa_budget"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/text_sisa_budget"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_bold"
+                    android:text="Rp 81,667"
+                    android:textColor="#E6FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintBaseline_toBaselineOf="@id/text_pengeluran"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <com.google.android.material.progressindicator.LinearProgressIndicator
+                    android:id="@+id/lpi_budget"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg_gradient_midnight_city"
-                    android:padding="16dp">
+                    android:layout_marginTop="8dp"
+                    android:progress="75"
+                    app:indicatorColor="@color/white"
+                    app:layout_constraintTop_toBottomOf="@id/text_pengeluran"
+                    app:trackCornerRadius="8dp" />
 
-                    <TextView
-                        android:id="@+id/text_budget_dummy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_bold"
-                        android:text="Budget Aku"
-                        android:textColor="#E6FFFFFF"
-                        android:textSize="12sp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/inter_medium"
+                    android:text="Maks. pengeluaran Rp20,000/hari untuk 4 hari ke depan"
+                    android:textColor="#A6FFFFFF"
+                    android:textSize="10sp"
+                    app:layout_constraintTop_toBottomOf="@id/lpi_budget" />
 
-                    <TextView
-                        android:id="@+id/text_pengeluarn_dummy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="48dp"
-                        android:fontFamily="@font/inter_semibold"
-                        android:text="Pengeluaran"
-                        android:textAllCaps="true"
-                        android:textColor="#A6FFFFFF"
-                        android:textSize="10sp"
-                        app:layout_constraintStart_toStartOf="@id/text_budget_dummy"
-                        app:layout_constraintTop_toBottomOf="@id/text_budget_dummy" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-                    <TextView
-                        android:id="@+id/text_pengeluran"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/inter_bold"
-                        android:text="Rp 245,000"
-                        android:textColor="#E6FFFFFF"
-                        android:textSize="20sp"
-                        app:layout_constraintStart_toStartOf="@id/text_budget_dummy"
-                        app:layout_constraintTop_toBottomOf="@id/text_pengeluarn_dummy" />
-
-                    <TextView
-                        android:id="@+id/text_sisa_budget_dummy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="4dp"
-                        android:fontFamily="@font/inter_semibold"
-                        android:text="Sisa Budget"
-                        android:textAllCaps="true"
-                        android:textColor="#A6FFFFFF"
-                        android:textSize="10sp"
-                        app:layout_constraintBottom_toTopOf="@id/text_sisa_budget"
-                        app:layout_constraintEnd_toEndOf="parent" />
-
-                    <TextView
-                        android:id="@+id/text_sisa_budget"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/inter_bold"
-                        android:text="Rp 81,667"
-                        android:textColor="#E6FFFFFF"
-                        android:textSize="16sp"
-                        app:layout_constraintBaseline_toBaselineOf="@id/text_pengeluran"
-                        app:layout_constraintEnd_toEndOf="parent" />
-
-                    <com.google.android.material.progressindicator.LinearProgressIndicator
-                        android:id="@+id/lpi_budget"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:progress="75"
-                        app:indicatorColor="@color/white"
-                        app:layout_constraintTop_toBottomOf="@id/text_pengeluran"
-                        app:trackCornerRadius="8dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:fontFamily="@font/inter_medium"
-                        android:text="Maks. pengeluaran Rp20,000/hari untuk 4 hari ke depan"
-                        android:textColor="#A6FFFFFF"
-                        android:textSize="10sp"
-                        app:layout_constraintTop_toBottomOf="@id/lpi_budget" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-            <TextView
-                android:id="@+id/tv_today"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/inter_bold"
-                android:text="Hari Ini"
-                android:textAllCaps="true"
-                android:textColor="@color/material_on_surface_emphasis_medium"
-                android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@id/cv_budget"
-                app:layout_constraintTop_toBottomOf="@id/cv_budget" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/inter_bold"
-                android:text="Lihat semua"
-                android:textColor="@color/material_on_surface_emphasis_high_type"
-                android:textSize="12sp"
-                app:layout_constraintBaseline_toBaselineOf="@id/tv_today"
-                app:layout_constraintEnd_toEndOf="@id/cv_budget" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_dashboard"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="@id/cv_budget"
-                app:layout_constraintStart_toStartOf="@id/cv_budget"
-                app:layout_constraintTop_toBottomOf="@id/tv_today" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-</LinearLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/dashboard_recycler"/>
+    </LinearLayout>
+</ScrollView>

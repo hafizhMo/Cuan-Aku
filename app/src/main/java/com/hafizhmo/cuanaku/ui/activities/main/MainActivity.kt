@@ -1,5 +1,6 @@
 package com.hafizhmo.cuanaku.ui.activities.main
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.hafizhmo.cuanaku.R
 import com.hafizhmo.cuanaku.databinding.ActivityMainBinding
+import com.hafizhmo.cuanaku.ui.activities.transaction.TransactionActivity
 import com.hafizhmo.cuanaku.ui.fragments.dashboard.DashboardFragment
 import com.hafizhmo.cuanaku.ui.fragments.history.HistoryFragment
 
@@ -30,6 +32,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.history -> attachFragment(HistoryFragment())
             }
             true
+        }
+
+        binding.fabMain.setOnClickListener {
+            startActivity(Intent(this, TransactionActivity::class.java))
         }
     }
 

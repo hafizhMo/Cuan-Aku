@@ -17,6 +17,15 @@ class DashboardFragment : Fragment(), DashboardView {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentDashboardBinding.inflate(layoutInflater, container, false)
+
+        binding.tvSeeAll.setOnClickListener {
+
+        }
+
+        binding.cvBudget.setOnClickListener {
+
+        }
+
         return binding.root
     }
 

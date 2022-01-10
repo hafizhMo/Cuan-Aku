@@ -27,11 +27,6 @@ interface ApiService {
         @Field("role") role: Int
     ): Call<Auth>
 
-    @GET("user/{id}")
-    fun getDetailUser(
-        @Path("id") id: Int
-    ): Call<Auth>
-
     //---------------------------- BUDGETING ----------------------------
 
     @GET("budgeting/user/{id}/latest")

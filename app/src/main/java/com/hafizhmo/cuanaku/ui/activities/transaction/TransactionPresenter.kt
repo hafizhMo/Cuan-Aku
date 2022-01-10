@@ -1,5 +1,6 @@
 package com.hafizhmo.cuanaku.ui.activities.transaction
 
+import com.hafizhmo.cuanaku.model.Category
 import com.hafizhmo.cuanaku.model.Transaction
 import com.hafizhmo.cuanaku.utils.ApiClient
 import retrofit2.Call
@@ -68,6 +69,26 @@ class TransactionPresenter(val transactionView: TransactionView) {
                 transactionView.deleteFailed(t.toString())
             }
         })
+    }
 
+    fun getCategories(){
+        val call = ApiClient.apiService.getCategories()
+
+        call.enqueue(object : Callback<Category>{
+            override fun onResponse(call: Call<Category>, response: Response<Category>) {
+                val result = response.body()!!
+
+                if (result.error){
+                    transactionView.categoryEmpty(result.message)
+                    return
+                }
+
+                transactionView.categorySuccess(result.categories, result.message)
+            }
+
+            override fun onFailure(call: Call<Category>, t: Throwable) {
+                transactionView.categoryFailed(t.toString())
+            }
+        })
     }
 }

@@ -1,5 +1,7 @@
 package com.hafizhmo.cuanaku.ui.activities.transaction
 
+import com.hafizhmo.cuanaku.model.Category
+
 interface TransactionView {
 
     fun submitSuccess(message: String)
@@ -16,6 +18,11 @@ interface TransactionView {
 
     fun deleteNotFound(message: String)
 
-    fun deleteFailed(message: String
-    )
+    fun deleteFailed(message: String)
+
+    fun categorySuccess(categories: List<Category.Categories>, message: String)
+
+    fun categoryEmpty(message: String)
+
+    fun categoryFailed(message: String)
 }

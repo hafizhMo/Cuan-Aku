@@ -12,6 +12,9 @@
         android:theme="@style/Theme.CuanAku"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".ui.activities.transaction.TransactionActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.activities.auth.AuthActivity"
             android:exported="true">
             <intent-filter>

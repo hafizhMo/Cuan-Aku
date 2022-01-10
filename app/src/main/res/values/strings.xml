@@ -9,5 +9,9 @@
     <string name="text_login">Login</string>
     <string name="text_register">Register</string>
     <string name="hint_name">Name</string>
+    <string name="hint_category">Category</string>
+    <string name="hint_expenses">Expenses Amount</string>
+    <string name="text_sumbit">Sumbit</string>
+    <string name="text_delete">delete</string>
 
 </resources>

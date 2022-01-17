@@ -13,5 +13,6 @@
     <string name="hint_expenses">Expenses Amount</string>
     <string name="text_sumbit">Sumbit</string>
     <string name="text_delete">delete</string>
+    <string name="role_hint">Register as</string>
 
 </resources>

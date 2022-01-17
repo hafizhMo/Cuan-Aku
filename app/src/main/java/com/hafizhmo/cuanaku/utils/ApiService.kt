@@ -20,6 +20,7 @@ interface ApiService {
         @Field("password") password: String
     ): Call<Auth>
 
+    @FormUrlEncoded
     @POST("register")
     fun register(
         @Field("name") name: String,

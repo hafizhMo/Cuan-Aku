@@ -152,11 +152,15 @@ class TransactionActivity : AppCompatActivity(), TransactionView {
     private fun showLoading() {
         binding.loadProgress.visibility = View.VISIBLE
         binding.submitButton.isEnabled = false
+        binding.editButton.isEnabled = false
+        binding.deleteButton.isEnabled = false
     }
 
     private fun hideLoading() {
         binding.loadProgress.visibility = View.INVISIBLE
         binding.submitButton.isEnabled = true
+        binding.editButton.isEnabled = true
+        binding.deleteButton.isEnabled = true
     }
 
     private fun validate(): Boolean {

@@ -15,8 +15,8 @@ class RelationActivity : AppCompatActivity(), RelationView {
         setContentView(binding.root)
     }
 
-    override fun getAllSuccess(relations: Relation.Relations, message: String) {
-        
+    override fun getAllSuccess(relations: List<Relation.Relations>, message: String) {
+
     }
 
     override fun getAllEmpty(message: String) {
@@ -47,7 +47,7 @@ class RelationActivity : AppCompatActivity(), RelationView {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    override fun delelteFailed(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    override fun deleteFailed(message: String) {
+        TODO("Not yet implemented")
     }
 }

@@ -9,7 +9,7 @@ import retrofit2.Response
 class DashboardPresenter(val dashboardView: DashboardView) {
 
     fun getLatestBudget(id: Int, token: String){
-        val call = ApiClient.apiService.getLatestBudget(id, "Bearer $token")
+        val call = ApiClient.apiService.getLatestBudget(id, token)
 
         call.enqueue(object : Callback<Budgeting>{
             override fun onResponse(call: Call<Budgeting>, response: Response<Budgeting>) {

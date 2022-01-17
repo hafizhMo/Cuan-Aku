@@ -1,14 +1,13 @@
 package com.hafizhmo.cuanaku.ui.fragments.history
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.hafizhmo.cuanaku.R
+import androidx.fragment.app.Fragment
 import com.hafizhmo.cuanaku.databinding.FragmentHistoryBinding
-import com.hafizhmo.cuanaku.model.Transaction
+import com.hafizhmo.cuanaku.model.Transactions
 
 class HistoryFragment : Fragment(), HistoryView {
 
@@ -22,7 +21,7 @@ class HistoryFragment : Fragment(), HistoryView {
         return binding.root
     }
 
-    override fun onSuccess(transactions: Transaction.Transactions, message: String) {
+    override fun onSuccess(transactions: Transactions.Transactions, message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 

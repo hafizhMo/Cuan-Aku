@@ -65,20 +65,24 @@ interface ApiService {
     @GET("transaction/{id}")
     fun getAllTransaction(
         @Path("id") userId: Int
-    ): Call<Transaction>
+    ): Call<Transactions>
 
+    @FormUrlEncoded
     @POST("transaction")
     fun createTransaction(
         @Field("amount") amount: Int,
         @Field("category_id") categoryId: Int,
         @Field("user_id") userId: Int,
+        @Header("Authorization") token: String
     ): Call<Transaction>
 
+    @FormUrlEncoded
     @PUT("transaction")
     fun editCurrentTransaction(
         @Field("amount") amount: Int,
         @Field("category_id") categoryId: Int,
-        @Field("id") id: Int
+        @Field("id") id: Int,
+        @Header("Authorization") token: String
     ): Call<Transaction>
 
     @DELETE("transaction/{id}")
@@ -113,6 +117,8 @@ interface ApiService {
     ): Call<Relation>
 
     companion object {
-        const val BASE_URL = "http://192.168.10.106/api/"
+        const val BASE_URL = "http://192.168.10.106"
+        const val URL_API = "${BASE_URL}/api/"
+        const val URL_IMAGE = "${BASE_URL}/storage/"
     }
 }

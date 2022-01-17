@@ -9,8 +9,8 @@ import retrofit2.Response
 
 class TransactionPresenter(val transactionView: TransactionView) {
 
-    fun createTransaction(amount: Int, categoryId: Int, userId: Int) {
-        val call = ApiClient.apiService.createTransaction(amount, categoryId, userId)
+    fun createTransaction(amount: Int, categoryId: Int, userId: Int, token: String) {
+        val call = ApiClient.apiService.createTransaction(amount, categoryId, userId, token)
 
         call.enqueue(object : Callback<Transaction> {
             override fun onResponse(call: Call<Transaction>, response: Response<Transaction>) {
@@ -29,9 +29,9 @@ class TransactionPresenter(val transactionView: TransactionView) {
         })
     }
 
-    fun saveTransaction(amount: Int, categoryId: Int, transactionId: Int) {
+    fun saveTransaction(amount: Int, categoryId: Int, transactionId: Int, token: String) {
         val call =
-            ApiClient.apiService.editCurrentTransaction(amount, categoryId, transactionId)
+            ApiClient.apiService.editCurrentTransaction(amount, categoryId, transactionId, token)
 
         call.enqueue(object : Callback<Transaction> {
             override fun onResponse(call: Call<Transaction>, response: Response<Transaction>) {

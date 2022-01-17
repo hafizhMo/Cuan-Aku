@@ -22,7 +22,7 @@ class SharedPref(val context: Context) {
         val editor = sharedPreferences.edit()
         editor.putInt(KEY_ID, id)
         editor.putString(KEY_ROLE, role)
-        editor.putString(KEY_TOKEN, token)
+        editor.putString(KEY_TOKEN, "Bearer $token")
         editor.putBoolean(KEY_IS_LOGGED_IN, true)
         editor.apply()
     }

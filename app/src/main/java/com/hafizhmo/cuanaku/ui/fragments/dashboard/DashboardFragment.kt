@@ -57,11 +57,11 @@ class DashboardFragment : Fragment(), DashboardView {
     }
 
     override fun onEmpty(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
     override fun onFailed(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+//        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
 }

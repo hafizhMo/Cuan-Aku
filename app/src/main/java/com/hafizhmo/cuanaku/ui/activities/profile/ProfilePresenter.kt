@@ -9,7 +9,7 @@ import retrofit2.Response
 class ProfilePresenter(private val profileView: ProfileView) {
 
     fun getResponse(id: Int, token: String){
-        val call = ApiClient.apiService.getUserDetail(id, "Bearer $token")
+        val call = ApiClient.apiService.getUserDetail(id, token)
 
         call.enqueue(object : Callback<Auth> {
             override fun onResponse(call: Call<Auth>, response: Response<Auth>) {

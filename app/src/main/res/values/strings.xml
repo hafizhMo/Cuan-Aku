@@ -14,5 +14,9 @@
     <string name="text_sumbit">Sumbit</string>
     <string name="text_delete">delete</string>
     <string name="role_hint">Register as</string>
+    <string name="login_button_label">Sign In</string>
+    <string name="register_button_on_login_layout_label">Don\'t have any Account? Register</string>
+    <string name="register_label">Register</string>
+    <string name="login_button_on_register_layout_label">Already have an account? Sign In</string>
 
 </resources>

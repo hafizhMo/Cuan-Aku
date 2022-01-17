@@ -17,8 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/inter_bold"
-            android:text="Januari 2022"
-            android:textAllCaps="true"
+            android:text="Budget"
             android:textColor="@color/material_on_surface_emphasis_medium"
             android:textSize="12sp"
             app:layout_constraintStart_toStartOf="@id/cv_budget"
@@ -52,11 +51,12 @@
                 android:padding="16dp">
 
                 <TextView
-                    android:id="@+id/text_budget_dummy"
+                    android:id="@+id/text_budget_month"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_bold"
-                    android:text="Budget Aku"
+                    android:text="Desember 2021"
+                    android:textAllCaps="true"
                     android:textColor="#E6FFFFFF"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
@@ -72,8 +72,8 @@
                     android:textAllCaps="true"
                     android:textColor="#A6FFFFFF"
                     android:textSize="10sp"
-                    app:layout_constraintStart_toStartOf="@id/text_budget_dummy"
-                    app:layout_constraintTop_toBottomOf="@id/text_budget_dummy" />
+                    app:layout_constraintStart_toStartOf="@id/text_budget_month"
+                    app:layout_constraintTop_toBottomOf="@id/text_budget_month" />
 
                 <TextView
                     android:id="@+id/text_pengeluran"
@@ -84,7 +84,7 @@
                     android:text="Rp 245,000"
                     android:textColor="#E6FFFFFF"
                     android:textSize="20sp"
-                    app:layout_constraintStart_toStartOf="@id/text_budget_dummy"
+                    app:layout_constraintStart_toStartOf="@id/text_budget_month"
                     app:layout_constraintTop_toBottomOf="@id/text_pengeluarn_dummy" />
 
                 <TextView

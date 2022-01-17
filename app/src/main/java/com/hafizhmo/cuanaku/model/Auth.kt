@@ -11,5 +11,6 @@ data class Auth(
         val name: String,
         val email: String,
         val role: String,
+        val profile_photo_url: String
     )
 }

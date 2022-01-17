@@ -1,6 +1,7 @@
 package com.hafizhmo.cuanaku.ui.fragments.login
 
 import android.util.Log
+import android.widget.Toast
 import com.hafizhmo.cuanaku.model.Auth
 import com.hafizhmo.cuanaku.utils.ApiClient
 import retrofit2.Call
@@ -26,7 +27,7 @@ class LoginPresenter(val loginView: LoginView) {
             }
 
             override fun onFailure(call: Call<Auth>, t: Throwable) {
-                loginView.onFailed(t.toString())
+                loginView.onFailed("Incorrect email or password!")
             }
         })
     }

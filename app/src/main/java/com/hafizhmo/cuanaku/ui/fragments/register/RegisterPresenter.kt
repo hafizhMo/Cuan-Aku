@@ -20,11 +20,11 @@ class RegisterPresenter(val registerView: RegisterView) {
                     return
                 }
 
-                registerView.onSuccess(result.user, response.message())
+                registerView.onSuccess(result.user, result.token, response.message())
             }
 
             override fun onFailure(call: Call<Auth>, t: Throwable) {
-                registerView.onFailed(t.toString())
+                registerView.onFailed("Email is already exists!")
             }
         })
     }

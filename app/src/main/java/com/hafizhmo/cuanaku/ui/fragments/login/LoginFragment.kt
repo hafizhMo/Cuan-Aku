@@ -12,16 +12,14 @@ import androidx.navigation.fragment.findNavController
 import com.hafizhmo.cuanaku.R
 import com.hafizhmo.cuanaku.databinding.FragmentLoginBinding
 import com.hafizhmo.cuanaku.model.Auth
-import com.hafizhmo.cuanaku.ui.BaseView
 import com.hafizhmo.cuanaku.ui.activities.main.MainActivity
 import com.hafizhmo.cuanaku.utils.CommonUtil
 import com.hafizhmo.cuanaku.utils.SharedPref
 
-class LoginFragment : Fragment(), LoginView, BaseView {
+class LoginFragment : Fragment(), LoginView {
 
     private lateinit var binding: FragmentLoginBinding
     private lateinit var presenter: LoginPresenter
-    private var progressDialog: ProgressDialog? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,42 +33,46 @@ class LoginFragment : Fragment(), LoginView, BaseView {
         }
 
         binding.loginButton.setOnClickListener {
-            showLoading()
-            validate(
-                binding.emailInput.text.toString(),
-                binding.passwordInput.text.toString()
-            )
+            if (binding.emailInput.text.toString().isEmpty() ||
+                binding.passwordInput.text.toString().isEmpty()
+            ) {
+                Toast.makeText(
+                    requireContext(),
+                    "Email and password can't be empty",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                showLoading()
+                presenter.login(
+                    binding.emailInput.text.toString(),
+                    binding.passwordInput.text.toString()
+                )
+            }
         }
         return binding.root
     }
 
     override fun onSuccess(user: Auth.User, token: String, message: String) {
-        SharedPref(requireContext()).saveSession(user)
-        hideLoading()
+        SharedPref(requireContext()).saveSession(user.id, user.role, token)
         startActivity(Intent(context, MainActivity::class.java))
         activity?.finish()
     }
 
     override fun onFailed(message: String) {
         hideLoading()
+        binding.passwordInput.text = null
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
-    private fun validate(email: String, password: String) {
-        when {
-            email.isEmpty() -> binding.emailInput.error = "This field must be fill!"
-            password.isEmpty() -> binding.passwordInput.error = "This field must be fill!"
-            else -> presenter.login(email, password)
-        }
+    private fun showLoading() {
+        binding.loadProgress.visibility = View.VISIBLE
+        binding.loginButton.isEnabled = false
+        binding.registerButton.isEnabled = false
     }
 
-    override fun showLoading() {
-        hideLoading()
-        progressDialog = CommonUtil.showLoadingDialog(context)
-    }
-
-    override fun hideLoading() {
-        if (progressDialog != null && progressDialog?.isShowing!!)
-            progressDialog?.cancel()
+    private fun hideLoading() {
+        binding.loadProgress.visibility = View.INVISIBLE
+        binding.loginButton.isEnabled = true
+        binding.registerButton.isEnabled = true
     }
 }

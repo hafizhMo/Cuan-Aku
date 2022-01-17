@@ -33,7 +33,8 @@ interface ApiService {
 
     @GET("budgeting/user/{id}/latest")
     fun getLatestBudget(
-        @Path("id") id: Int
+        @Path("id") id: Int,
+        @Header("Authorization") token: String
     ): Call<Budgeting>
 
     @GET("budgeting/user/{id}")

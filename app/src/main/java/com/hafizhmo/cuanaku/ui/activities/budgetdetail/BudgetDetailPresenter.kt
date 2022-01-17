@@ -8,8 +8,8 @@ import retrofit2.Response
 
 class BudgetDetailPresenter(val budgetDetailView: BudgetDetailView) {
 
-    fun saveBudget(id: Int, totalBudget: Int){
-        val call = ApiClient.apiService.editCurrentBudget(id, totalBudget)
+    fun saveBudget(id: Int, totalBudget: Int, token: String){
+        val call = ApiClient.apiService.editCurrentBudget(id, totalBudget, token)
 
         call.enqueue(object : Callback<Budgeting> {
             override fun onResponse(call: Call<Budgeting>, response: Response<Budgeting>) {
@@ -28,8 +28,8 @@ class BudgetDetailPresenter(val budgetDetailView: BudgetDetailView) {
         })
     }
 
-    fun createBudget(userId: Int, totalBudget: Int){
-        val call = ApiClient.apiService.createBudget(userId, totalBudget)
+    fun createBudget(totalBudget: Int, userId: Int, token: String){
+        val call = ApiClient.apiService.createBudget(userId, totalBudget, token)
 
         call.enqueue(object : Callback<Budgeting> {
             override fun onResponse(call: Call<Budgeting>, response: Response<Budgeting>) {

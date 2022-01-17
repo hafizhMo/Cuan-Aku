@@ -41,23 +41,27 @@ interface ApiService {
     fun getLatestBudget(
         @Path("id") id: Int,
         @Header("Authorization") token: String
-    ): Call<Budgeting>
+    ): Call<Budgetings>
 
     @GET("budgeting/user/{id}")
     fun getAllBudget(
         @Path("id") id: Int
-    ): Call<Budgeting>
+    ): Call<Budgetings>
 
+    @FormUrlEncoded
     @PUT("budgeting")
     fun editCurrentBudget(
         @Field("id") id: Int,
-        @Field("total_budget") totalBudget: Int
+        @Field("total_budget") totalBudget: Int,
+        @Header("Authorization") token: String
     ): Call<Budgeting>
 
+    @FormUrlEncoded
     @POST("budgeting")
     fun createBudget(
         @Field("user_id") userId: Int,
-        @Field("total_budget") budgetAmount: Int
+        @Field("total_budget") budgetAmount: Int,
+        @Header("Authorization") token: String
     ): Call<Budgeting>
 
     //---------------------------- TRANSACTION ----------------------------

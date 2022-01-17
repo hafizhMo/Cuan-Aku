@@ -1,6 +1,6 @@
 package com.hafizhmo.cuanaku.ui.fragments.dashboard
 
-import com.hafizhmo.cuanaku.model.Budgeting
+import com.hafizhmo.cuanaku.model.Budgetings
 import com.hafizhmo.cuanaku.utils.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -11,8 +11,8 @@ class DashboardPresenter(val dashboardView: DashboardView) {
     fun getLatestBudget(id: Int, token: String){
         val call = ApiClient.apiService.getLatestBudget(id, token)
 
-        call.enqueue(object : Callback<Budgeting>{
-            override fun onResponse(call: Call<Budgeting>, response: Response<Budgeting>) {
+        call.enqueue(object : Callback<Budgetings>{
+            override fun onResponse(call: Call<Budgetings>, response: Response<Budgetings>) {
                 val result = response.body()!!
 
                 if (result.error){
@@ -23,7 +23,7 @@ class DashboardPresenter(val dashboardView: DashboardView) {
                 dashboardView.onSuccess(result.budget, result.message)
             }
 
-            override fun onFailure(call: Call<Budgeting>, t: Throwable) {
+            override fun onFailure(call: Call<Budgetings>, t: Throwable) {
                 dashboardView.onFailed(t.toString())
             }
         })

@@ -1,10 +1,10 @@
 package com.hafizhmo.cuanaku.ui.fragments.dashboard
 
-import com.hafizhmo.cuanaku.model.Budgeting
+import com.hafizhmo.cuanaku.model.Budgetings
 
 interface DashboardView {
 
-    fun onSuccess(budget: Budgeting.Budget, message: String)
+    fun onSuccess(budget: Budgetings.Budget, message: String)
 
     fun onEmpty(message: String)
 

@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import com.hafizhmo.cuanaku.databinding.FragmentDashboardBinding
-import com.hafizhmo.cuanaku.model.Budgeting
+import com.hafizhmo.cuanaku.model.Budgetings
 import com.hafizhmo.cuanaku.ui.activities.budget.BudgetActivity
 import com.hafizhmo.cuanaku.ui.activities.budgetdetail.BudgetDetailActivity
 import com.hafizhmo.cuanaku.utils.SharedPref
@@ -21,6 +21,7 @@ class DashboardFragment : Fragment(), DashboardView {
 
     private lateinit var binding: FragmentDashboardBinding
     private lateinit var presenter: DashboardPresenter
+    private lateinit var budgeting: Budgetings.Budget
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +35,10 @@ class DashboardFragment : Fragment(), DashboardView {
         }
 
         binding.cvBudget.setOnClickListener {
-            startActivity(Intent(requireContext(), BudgetDetailActivity::class.java))
+            val intent = Intent(requireContext(), BudgetDetailActivity::class.java)
+            intent.putExtra(BudgetDetailActivity.KEY_TYPE, "detail")
+            intent.putExtra(BudgetDetailActivity.KEY_PARCEL, budgeting)
+            startActivity(intent)
         }
 
         return binding.root
@@ -46,7 +50,8 @@ class DashboardFragment : Fragment(), DashboardView {
         presenter.getLatestBudget(pref.getSessionId(), pref.getSessionToken())
     }
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onSuccess(budget: Budgeting.Budget, message: String) {
+    override fun onSuccess(budget: Budgetings.Budget, message: String) {
+        budgeting = budget
         val sdfmonth = DateTimeFormatter.ofPattern("MMMM yyyy")
         val sdfdate = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'")
         val dt = LocalDate.parse(budget.created_at, sdfdate)

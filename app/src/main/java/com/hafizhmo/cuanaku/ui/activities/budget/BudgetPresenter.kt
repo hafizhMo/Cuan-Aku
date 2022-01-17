@@ -1,6 +1,6 @@
 package com.hafizhmo.cuanaku.ui.activities.budget
 
-import com.hafizhmo.cuanaku.model.Budgeting
+import com.hafizhmo.cuanaku.model.Budgetings
 import com.hafizhmo.cuanaku.utils.ApiClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -11,8 +11,8 @@ class BudgetPresenter(val budgetView: BudgetView) {
     fun getAllBudget(id: Int){
         val call = ApiClient.apiService.getAllBudget(id)
 
-        call.enqueue(object : Callback<Budgeting> {
-            override fun onResponse(call: Call<Budgeting>, response: Response<Budgeting>) {
+        call.enqueue(object : Callback<Budgetings> {
+            override fun onResponse(call: Call<Budgetings>, response: Response<Budgetings>) {
                 val result = response.body()!!
 
                 if (result.error){
@@ -23,7 +23,7 @@ class BudgetPresenter(val budgetView: BudgetView) {
                 budgetView.onSuccess(result.budget, result.message)
             }
 
-            override fun onFailure(call: Call<Budgeting>, t: Throwable) {
+            override fun onFailure(call: Call<Budgetings>, t: Throwable) {
                 budgetView.onFailed(t.toString())
             }
         })

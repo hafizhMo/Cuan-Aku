@@ -20,5 +20,6 @@
     <string name="login_button_on_register_layout_label">Already have an account? Sign In</string>
     <string name="logout_label">Logout</string>
     <string name="edit_label">Edit</string>
+    <string name="hint_total_budget">Total Budget</string>
 
 </resources>

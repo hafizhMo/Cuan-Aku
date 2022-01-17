@@ -11,6 +11,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.hafizhmo.cuanaku.R
 import com.hafizhmo.cuanaku.databinding.ActivityMainBinding
 import com.hafizhmo.cuanaku.ui.activities.auth.AuthActivity
+import com.hafizhmo.cuanaku.ui.activities.profile.ProfileActivity
 import com.hafizhmo.cuanaku.ui.activities.transaction.TransactionActivity
 import com.hafizhmo.cuanaku.ui.fragments.dashboard.DashboardFragment
 import com.hafizhmo.cuanaku.ui.fragments.history.HistoryFragment
@@ -42,9 +43,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imageIcon.setOnClickListener {
-            SharedPref(this).clearSession()
-            startActivity(Intent(this, AuthActivity::class.java))
-            finish()
+            startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
 

@@ -29,6 +29,12 @@ interface ApiService {
         @Field("role") role: Int
     ): Call<Auth>
 
+    @GET("user/{id}")
+    fun getUserDetail(
+        @Path("id") id: Int,
+        @Header("Authorization") token: String
+    ): Call<Auth>
+
     //---------------------------- BUDGETING ----------------------------
 
     @GET("budgeting/user/{id}/latest")

@@ -29,9 +29,9 @@ class TransactionPresenter(val transactionView: TransactionView) {
         })
     }
 
-    fun saveTransaction(amount: Int, categoryId: Int, transactionId: Int, token: String) {
+    fun saveTransaction(amount: Int, categoryId: Int, transactionId: Int, userId: Int, token: String) {
         val call =
-            ApiClient.apiService.editCurrentTransaction(amount, categoryId, transactionId, token)
+            ApiClient.apiService.editCurrentTransaction(amount, categoryId, transactionId, userId, token)
 
         call.enqueue(object : Callback<Transaction> {
             override fun onResponse(call: Call<Transaction>, response: Response<Transaction>) {

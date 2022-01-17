@@ -1,4 +1,4 @@
-package com.hafizhmo.cuanaku.ui.fragments.history
+package com.hafizhmo.cuanaku.ui.fragments.dashboard
 
 import android.content.Context
 import android.content.Intent
@@ -6,24 +6,24 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.hafizhmo.cuanaku.databinding.ItemGridTransactionBinding
 import com.hafizhmo.cuanaku.databinding.ItemListTransactionBinding
-import com.hafizhmo.cuanaku.model.Transactions
+import com.hafizhmo.cuanaku.model.TransactionsGroup
 import com.hafizhmo.cuanaku.ui.activities.transaction.TransactionActivity
 import com.hafizhmo.cuanaku.utils.ApiService.Companion.URL_IMAGE
 import com.hafizhmo.cuanaku.utils.StringHelper
 
-class HistoryAdapter(
+class DashboardAdapter(
     private val context: Context,
-    private val transactions: List<Transactions.Transactions>
-) : RecyclerView.Adapter<HistoryAdapter.ViewHolder>() {
+    private val transactions: List<TransactionsGroup.Transactions>
+) : RecyclerView.Adapter<DashboardAdapter.ViewHolder>() {
 
-    inner class ViewHolder(val binding: ItemListTransactionBinding) :
+    inner class ViewHolder(val binding: ItemGridTransactionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(transaction: Transactions.Transactions) {
+        fun bind(transaction: TransactionsGroup.Transactions) {
             with(binding){
-                tvItemNominal.text = StringHelper.convertFormatPrice(transaction.amount.toString())
-                tvItemTimestamp.text = StringHelper.formatDate(transaction.created_at)
+                tvItemTotal.text = StringHelper.convertFormatPrice(transaction.sum.toString())
                 tvItemTitle.text = transaction.category.slug
                 Glide.with(context)
                     .load(URL_IMAGE + transaction.category.image)
@@ -42,7 +42,7 @@ class HistoryAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
-            ItemListTransactionBinding.inflate(
+            ItemGridTransactionBinding.inflate(
                 LayoutInflater.from(context),
                 parent,
                 false

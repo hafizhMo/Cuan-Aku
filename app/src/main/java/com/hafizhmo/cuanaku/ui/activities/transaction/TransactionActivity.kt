@@ -73,6 +73,7 @@ class TransactionActivity : AppCompatActivity(), TransactionView {
                     binding.amountInput.text.toString().toInt(),
                     selectedCategory,
                     transaction.id,
+                    pref.getSessionId(),
                     pref.getSessionToken()
                 )
             }

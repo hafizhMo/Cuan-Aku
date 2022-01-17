@@ -3,10 +3,10 @@ package com.hafizhmo.cuanaku.model
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
-data class Budgetings(
+data class Budgetingss(
     val error: Boolean,
     val message: String,
-    val budget: Budget
+    val budget: List<Budget>
 ){
     @Parcelize
     data class Budget(

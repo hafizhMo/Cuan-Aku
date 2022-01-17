@@ -22,4 +22,34 @@
     <string name="edit_label">Edit</string>
     <string name="hint_total_budget">Total Budget</string>
 
+    <string-array name="profile_account">
+        <item>Edit Profile</item>
+        <item>Edit Passowrd</item>
+        <item>Relation</item>
+        <item>Language</item>
+        <item>Dark Theme</item>
+    </string-array>
+
+    <array name="image_account">
+        <item>@drawable/ic_edit</item>
+        <item>@drawable/ic_password</item>
+        <item>@drawable/ic_relation</item>
+        <item>@drawable/ic_language</item>
+        <item>@drawable/ic_tema</item>
+    </array>
+
+    <string-array name="profile_other">
+        <item>Privacy Policy</item>
+        <item>Terms of Services</item>
+        <item>About Developer</item>
+        <item>Rate E-Sangu App</item>
+    </string-array>
+
+    <array name="image_other">
+        <item>@drawable/ic_kebijakan_privasi</item>
+        <item>@drawable/ic_ketentuan_layanan</item>
+        <item>@drawable/ic_developer</item>
+        <item>@drawable/ic_rating</item>
+    </array>
+
 </resources>

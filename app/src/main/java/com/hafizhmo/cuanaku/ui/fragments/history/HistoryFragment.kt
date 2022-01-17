@@ -23,6 +23,12 @@ class HistoryFragment : Fragment(), HistoryView {
         binding = FragmentHistoryBinding.inflate(layoutInflater, container, false)
         presenter = HistoryPresenter(this)
 
+        binding.refreshLayout.setOnRefreshListener {
+            showLoading()
+            val pref = SharedPref(requireContext())
+            presenter.getAllHistory(pref.getSessionId(), pref.getSessionToken())
+        }
+
         return binding.root
     }
 
@@ -56,5 +62,6 @@ class HistoryFragment : Fragment(), HistoryView {
 
     private fun hideLoading() {
         binding.loadProgress.visibility = View.INVISIBLE
+        binding.refreshLayout.isRefreshing = false
     }
 }

@@ -29,7 +29,7 @@ class BudgetDetailPresenter(val budgetDetailView: BudgetDetailView) {
     }
 
     fun createBudget(totalBudget: Int, userId: Int, token: String){
-        val call = ApiClient.apiService.createBudget(userId, totalBudget, token)
+        val call = ApiClient.apiService.createBudget(userId, "January", "2022", totalBudget, token)
 
         call.enqueue(object : Callback<Budgeting> {
             override fun onResponse(call: Call<Budgeting>, response: Response<Budgeting>) {

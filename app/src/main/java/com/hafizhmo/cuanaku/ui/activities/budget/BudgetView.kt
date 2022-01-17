@@ -1,10 +1,10 @@
 package com.hafizhmo.cuanaku.ui.activities.budget
 
-import com.hafizhmo.cuanaku.model.Budgetings
+import com.hafizhmo.cuanaku.model.Budgetingss
 
 interface BudgetView {
 
-    fun onSuccess(budget: Budgetings.Budget, message: String)
+    fun onSuccess(budget: List<Budgetingss.Budget>, message: String)
 
     fun onEmpty(message: String)
 

@@ -9,11 +9,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import com.hafizhmo.cuanaku.databinding.FragmentDashboardBinding
 import com.hafizhmo.cuanaku.model.Budgetings
+import com.hafizhmo.cuanaku.model.TransactionsGroup
 import com.hafizhmo.cuanaku.ui.activities.budget.BudgetActivity
 import com.hafizhmo.cuanaku.ui.activities.budgetdetail.BudgetDetailActivity
 import com.hafizhmo.cuanaku.utils.SharedPref
+import com.hafizhmo.cuanaku.utils.StringHelper
+import kotlinx.android.synthetic.main.fragment_dashboard.*
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -41,32 +45,67 @@ class DashboardFragment : Fragment(), DashboardView {
             startActivity(intent)
         }
 
+        binding.cvEmpty.setOnClickListener {
+            val intent = Intent(requireContext(), BudgetDetailActivity::class.java)
+            intent.putExtra(BudgetDetailActivity.KEY_TYPE, "create")
+            startActivity(intent)
+        }
+
         return binding.root
     }
 
     override fun onStart() {
         super.onStart()
+        showLoading()
         val pref = SharedPref(requireContext())
         presenter.getLatestBudget(pref.getSessionId(), pref.getSessionToken())
+        presenter.getTransactionGroup(pref.getSessionId(), pref.getSessionToken())
     }
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onSuccess(budget: Budgetings.Budget, message: String) {
+        binding.cvEmpty.visibility = View.GONE
         budgeting = budget
-        val sdfmonth = DateTimeFormatter.ofPattern("MMMM yyyy")
-        val sdfdate = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'")
-        val dt = LocalDate.parse(budget.created_at, sdfdate)
+//        val sdfmonth = DateTimeFormatter.ofPattern("MMMM yyyy")
+//        val sdfdate = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSSSS'Z'")
+//        val dt = LocalDate.parse(budget.created_at, sdfdate)
 
-        binding.textPengeluran.text = budget.total_expenses.toString()
-        binding.textSisaBudget.text = budget.remaining_budget.toString()
-        binding.textBudgetMonth.text = dt.format(sdfmonth)
+        val count = budget.total_expenses
+        val totalCount = budget.total_budget
+        val percentage = (count.toDouble()/totalCount)*100
+        lpi_budget.progress = percentage.toInt()
+
+        binding.textPengeluran.text = StringHelper.convertFormatPrice(budget.total_expenses.toString())
+        binding.textSisaBudget.text = StringHelper.convertFormatPrice(budget.remaining_budget.toString())
+//        binding.textBudgetMonth.text = dt.format(sdfmonth)
+        binding.textBudgetMonth.text = "${budget.month} ${budget.year}"
     }
 
     override fun onEmpty(message: String) {
-//        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+        binding.cvBudget.visibility = View.INVISIBLE
     }
 
     override fun onFailed(message: String) {
-//        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+        binding.cvBudget.visibility = View.INVISIBLE
+    }
+
+    override fun onGroupSuccess(transactions: List<TransactionsGroup.Transactions>, msg: String) {
+        hideLoading()
+
+        binding.dashboardRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.dashboardRecycler.adapter = DashboardAdapter(requireContext(), transactions)
+    }
+
+    override fun onGroupFailed(msg: String) {
+        hideLoading()
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showLoading() {
+        binding.loadProgress.visibility = View.VISIBLE
+    }
+
+    private fun hideLoading() {
+        binding.loadProgress.visibility = View.INVISIBLE
     }
 
 }

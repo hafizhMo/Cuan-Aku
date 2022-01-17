@@ -45,8 +45,9 @@ interface ApiService {
 
     @GET("budgeting/user/{id}")
     fun getAllBudget(
-        @Path("id") id: Int
-    ): Call<Budgetings>
+        @Path("id") id: Int,
+        @Header("Authorization") token: String
+    ): Call<Budgetingss>
 
     @FormUrlEncoded
     @PUT("budgeting")
@@ -60,6 +61,8 @@ interface ApiService {
     @POST("budgeting")
     fun createBudget(
         @Field("user_id") userId: Int,
+        @Field("month") month: String,
+        @Field("year") year: String,
         @Field("total_budget") budgetAmount: Int,
         @Header("Authorization") token: String
     ): Call<Budgeting>
@@ -71,6 +74,12 @@ interface ApiService {
         @Path("id") userId: Int,
         @Header("Authorization") token: String
     ): Call<Transactions>
+
+    @GET("transaction/group/{id}")
+    fun getAllTransactionGroup(
+        @Path("id") userId: Int,
+        @Header("Authorization") token: String
+    ): Call<TransactionsGroup>
 
     @FormUrlEncoded
     @POST("transaction")
@@ -87,6 +96,7 @@ interface ApiService {
         @Field("amount") amount: Int,
         @Field("category_id") categoryId: Int,
         @Field("id") id: Int,
+        @Field("user_id") user_id: Int,
         @Header("Authorization") token: String
     ): Call<Transaction>
 

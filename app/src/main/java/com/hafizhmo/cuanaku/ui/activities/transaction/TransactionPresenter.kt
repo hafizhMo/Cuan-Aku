@@ -51,8 +51,8 @@ class TransactionPresenter(val transactionView: TransactionView) {
 
     }
 
-    fun deleteTransaction(id: Int) {
-        val call = ApiClient.apiService.removeCurrentTransaction(id)
+    fun deleteTransaction(id: Int, token: String) {
+        val call = ApiClient.apiService.removeCurrentTransaction(id, token)
 
         call.enqueue(object : Callback<Transaction> {
             override fun onResponse(call: Call<Transaction>, response: Response<Transaction>) {

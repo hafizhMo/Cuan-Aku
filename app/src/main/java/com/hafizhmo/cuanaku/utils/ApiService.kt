@@ -88,7 +88,8 @@ interface ApiService {
 
     @DELETE("transaction/{id}")
     fun removeCurrentTransaction(
-        @Path("id") id: Int
+        @Path("id") id: Int,
+        @Header("Authorization") token: String
     ): Call<Transaction>
 
     //---------------------------- RELATION ----------------------------

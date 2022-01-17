@@ -22,12 +22,15 @@ class HistoryFragment : Fragment(), HistoryView {
     ): View {
         binding = FragmentHistoryBinding.inflate(layoutInflater, container, false)
         presenter = HistoryPresenter(this)
-        val pref = SharedPref(requireContext())
-
-        showLoading()
-        presenter.getAllHistory(pref.getSessionId(), pref.getSessionToken())
 
         return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        showLoading()
+        val pref = SharedPref(requireContext())
+        presenter.getAllHistory(pref.getSessionId(), pref.getSessionToken())
     }
 
     override fun onSuccess(transactions: List<Transactions.Transactions>, message: String) {

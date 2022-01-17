@@ -39,7 +39,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.fabMain.setOnClickListener {
-            startActivity(Intent(this, TransactionActivity::class.java))
+            val intent = Intent(this, TransactionActivity::class.java)
+            intent.putExtra(TransactionActivity.KEY_TYPE, "create")
+            startActivity(intent)
         }
 
         binding.imageIcon.setOnClickListener {

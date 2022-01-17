@@ -64,7 +64,8 @@ interface ApiService {
 
     @GET("transaction/{id}")
     fun getAllTransaction(
-        @Path("id") userId: Int
+        @Path("id") userId: Int,
+        @Header("Authorization") token: String
     ): Call<Transactions>
 
     @FormUrlEncoded

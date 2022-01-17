@@ -4,7 +4,7 @@ import com.hafizhmo.cuanaku.model.Transactions
 
 interface HistoryView {
 
-    fun onSuccess(transactions: Transactions.Transactions, message: String)
+    fun onSuccess(transactions: List<Transactions.Transactions>, message: String)
 
     fun onEmpty(message: String)
 

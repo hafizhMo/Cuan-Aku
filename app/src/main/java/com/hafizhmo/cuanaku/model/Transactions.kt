@@ -3,7 +3,7 @@ package com.hafizhmo.cuanaku.model
 data class Transactions(
     val error: Boolean,
     val message: String,
-    val transactions: Transactions
+    val transactions: List<Transactions>
 ){
     data class Transactions(
         val id: Int,

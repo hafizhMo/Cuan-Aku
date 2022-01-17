@@ -8,8 +8,8 @@ import retrofit2.Response
 
 class HistoryPresenter(val historyView: HistoryView) {
 
-    fun getAllHistory(id: Int){
-        val call = ApiClient.apiService.getAllTransaction(id)
+    fun getAllHistory(id: Int, token: String){
+        val call = ApiClient.apiService.getAllTransaction(id, token)
 
         call.enqueue(object : Callback<Transactions> {
             override fun onResponse(call: Call<Transactions>, response: Response<Transactions>) {

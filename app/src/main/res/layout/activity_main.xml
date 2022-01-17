@@ -32,6 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
+                android:id="@+id/image_icon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:layout_marginEnd="24sp"
@@ -39,7 +40,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/material_on_surface_emphasis_high_type" />
+                app:tint="@color/material_on_surface_emphasis_high_type"
+                tools:ignore="ContentDescription" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 

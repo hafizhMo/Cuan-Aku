@@ -105,6 +105,6 @@ interface ApiService {
     ): Call<Relation>
 
     companion object {
-        const val BASE_URL = "http://192.168.10.106:8000/api/"
+        const val BASE_URL = "http://192.168.10.106/api/"
     }
 }

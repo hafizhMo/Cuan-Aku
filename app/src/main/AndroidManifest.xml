@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CuanAku"
         android:usesCleartextTraffic="true"
-        tools:ignore="AllowBackup">
+        tools:ignore="AllowBackup"
+        tools:targetApi="m">
         <activity
             android:name=".ui.activities.invite.InviteActivity"
             android:exported="false" />
@@ -31,6 +32,9 @@
             android:exported="false" />
         <activity
             android:name=".ui.activities.auth.AuthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activities.splashscreen.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,7 +42,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activities.splashscreen.SplashScreenActivity" />
         <activity android:name=".ui.activities.main.MainActivity" />
     </application>
 

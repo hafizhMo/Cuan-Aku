@@ -1,5 +1,6 @@
 package com.hafizhmo.cuanaku.ui.fragments.login
 
+import android.util.Log
 import com.hafizhmo.cuanaku.model.Auth
 import com.hafizhmo.cuanaku.utils.ApiClient
 import retrofit2.Call
@@ -13,6 +14,7 @@ class LoginPresenter(val loginView: LoginView) {
 
         call.enqueue(object : Callback<Auth> {
             override fun onResponse(call: Call<Auth>, response: Response<Auth>) {
+                Log.d("Response: ", response.toString())
                 val result = response.body()!!
 
                 if (result.error) {

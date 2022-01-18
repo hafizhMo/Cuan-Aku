@@ -111,16 +111,20 @@ interface ApiService {
     @GET("relation/{role}/{id}")
     fun getAllRelation(
         @Path("role") role: String,
-        @Path("id") id: Int
-    ): Call<Relation>
+        @Path("id") id: Int,
+        @Header("Authorization") token: String
+    ): Call<Relations>
 
-    @POST("relation/create-{role}")
+    @FormUrlEncoded
+    @POST("relation/{role}/create")
     fun createRelation(
         @Path("role") role: String,
         @Field("wali_id") waliId: Int,
         @Field("beban_id") bebanId: Int,
+        @Header("Authorization") token: String
     ): Call<Relation>
 
+    @FormUrlEncoded
     @PUT("relation/update")
     fun editStatusRelation(
         @Field("id") id: Int,

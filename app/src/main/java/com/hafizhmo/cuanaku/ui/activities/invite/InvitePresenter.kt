@@ -8,8 +8,8 @@ import retrofit2.Response
 
 class InvitePresenter(val inviteView: InviteView) {
 
-    fun invite(role: String, waliId: Int, bebanId: Int){
-        val call = ApiClient.apiService.createRelation(role, waliId, bebanId)
+    fun invite(role: String, waliId: Int, bebanId: Int, token: String){
+        val call = ApiClient.apiService.createRelation(role, waliId, bebanId, token)
 
         call.enqueue(object : Callback<Relation> {
             override fun onResponse(call: Call<Relation>, response: Response<Relation>) {

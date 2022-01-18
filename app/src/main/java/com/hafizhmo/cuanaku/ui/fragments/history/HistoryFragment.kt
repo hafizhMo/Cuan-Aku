@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hafizhmo.cuanaku.R
 import com.hafizhmo.cuanaku.databinding.FragmentHistoryBinding
 import com.hafizhmo.cuanaku.model.Transactions
 import com.hafizhmo.cuanaku.utils.SharedPref
@@ -41,6 +41,8 @@ class HistoryFragment : Fragment(), HistoryView {
 
     override fun onSuccess(transactions: List<Transactions.Transactions>, message: String) {
         hideLoading()
+        binding.lottieView.visibility = View.GONE
+        binding.lottieText.visibility = View.GONE
 
         binding.historyRecycler.layoutManager = LinearLayoutManager(requireContext())
         binding.historyRecycler.adapter = HistoryAdapter(requireContext(), transactions)
@@ -48,20 +50,33 @@ class HistoryFragment : Fragment(), HistoryView {
 
     override fun onEmpty(message: String) {
         hideLoading()
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+        binding.lottieText.visibility = View.VISIBLE
+        binding.lottieText.text = message
+        binding.lottieView.setAnimation(R.raw.idle)
+        binding.lottieView.playAnimation()
+        binding.historyRecycler.visibility = View.GONE
     }
 
     override fun onFailed(message: String) {
         hideLoading()
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+        binding.lottieText.visibility = View.VISIBLE
+        binding.lottieText.text = message
+        binding.lottieView.setAnimation(R.raw.idle)
+        binding.lottieView.playAnimation()
+        binding.historyRecycler.visibility = View.GONE
     }
 
     private fun showLoading() {
         binding.loadProgress.visibility = View.VISIBLE
+        binding.historyRecycler.visibility = View.GONE
+        binding.lottieView.visibility = View.VISIBLE
+        binding.lottieView.setAnimation(R.raw.loading)
+        binding.lottieView.playAnimation()
     }
 
     private fun hideLoading() {
         binding.loadProgress.visibility = View.INVISIBLE
+        binding.historyRecycler.visibility = View.VISIBLE
         binding.refreshLayout.isRefreshing = false
     }
 }

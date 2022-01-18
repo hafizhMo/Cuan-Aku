@@ -1,10 +1,10 @@
 package com.hafizhmo.cuanaku.ui.activities.relation
 
-import com.hafizhmo.cuanaku.model.Relation
+import com.hafizhmo.cuanaku.model.Relations
 
 interface RelationView {
 
-    fun getAllSuccess(relations: List<Relation.Relations>, message: String)
+    fun getAllSuccess(relations: List<Relations.Relations>, message: String)
 
     fun getAllEmpty(message: String)
 

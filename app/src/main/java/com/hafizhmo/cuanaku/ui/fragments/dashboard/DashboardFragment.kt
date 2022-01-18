@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.hafizhmo.cuanaku.R
 import com.hafizhmo.cuanaku.databinding.FragmentDashboardBinding
 import com.hafizhmo.cuanaku.model.Budgetings
 import com.hafizhmo.cuanaku.model.TransactionsGroup
@@ -63,6 +64,7 @@ class DashboardFragment : Fragment(), DashboardView {
     }
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onSuccess(budget: Budgetings.Budget, message: String) {
+        binding.cvBudget.visibility = View.VISIBLE
         binding.cvEmpty.visibility = View.GONE
         budgeting = budget
 //        val sdfmonth = DateTimeFormatter.ofPattern("MMMM yyyy")
@@ -90,6 +92,8 @@ class DashboardFragment : Fragment(), DashboardView {
 
     override fun onGroupSuccess(transactions: List<TransactionsGroup.Transactions>, msg: String) {
         hideLoading()
+        binding.lottieView.visibility = View.GONE
+        binding.lottieText.visibility = View.GONE
 
         binding.dashboardRecycler.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.dashboardRecycler.adapter = DashboardAdapter(requireContext(), transactions)
@@ -97,11 +101,17 @@ class DashboardFragment : Fragment(), DashboardView {
 
     override fun onGroupFailed(msg: String) {
         hideLoading()
-        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
+        binding.lottieText.visibility = View.VISIBLE
+        binding.lottieText.text = msg
+        binding.lottieView.setAnimation(R.raw.idle)
+        binding.lottieView.playAnimation()
     }
 
     private fun showLoading() {
         binding.loadProgress.visibility = View.VISIBLE
+        binding.lottieView.visibility = View.VISIBLE
+        binding.lottieView.setAnimation(R.raw.loading)
+        binding.lottieView.playAnimation()
     }
 
     private fun hideLoading() {

@@ -11,39 +11,30 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cv_item_category"
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_item_relation"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            app:cardCornerRadius="100dp"
-            app:cardElevation="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_placeholder"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/iv_item_category"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/teal_200"
-                android:padding="12dp"
-                tools:ignore="ContentDescription" />
-
-        </com.google.android.material.card.MaterialCardView>
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/tv_item_nominal"
+            android:id="@+id/tv_item_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/inter_bold"
-            android:text="Rp 81,667"
             android:textColor="#D4000000"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/cv_item_category"
+            app:layout_constraintBottom_toBottomOf="@id/iv_item_relation"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/cv_item_category" />
+            app:layout_constraintTop_toTopOf="@id/iv_item_relation" />
 
         <TextView
-            android:id="@+id/tv_item_title"
+            android:id="@+id/tv_item_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
@@ -51,21 +42,21 @@
             android:fontFamily="@font/inter_semibold"
             android:text="Category"
             android:textColor="#D4000000"
-            app:layout_constraintEnd_toStartOf="@id/tv_item_nominal"
-            app:layout_constraintStart_toEndOf="@id/cv_item_category"
-            app:layout_constraintTop_toTopOf="@id/cv_item_category" />
+            app:layout_constraintEnd_toStartOf="@id/tv_item_status"
+            app:layout_constraintStart_toEndOf="@id/iv_item_relation"
+            app:layout_constraintTop_toTopOf="@id/iv_item_relation" />
 
         <TextView
-            android:id="@+id/tv_item_timestamp"
+            android:id="@+id/tv_item_email"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/inter_medium"
             android:text="30 menit lalu"
             android:textSize="10sp"
-            app:layout_constraintEnd_toEndOf="@id/tv_item_title"
-            app:layout_constraintStart_toStartOf="@id/tv_item_title"
-            app:layout_constraintTop_toBottomOf="@id/tv_item_title" />
+            app:layout_constraintEnd_toEndOf="@id/tv_item_name"
+            app:layout_constraintStart_toStartOf="@id/tv_item_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
